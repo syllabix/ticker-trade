@@ -1,0 +1,16 @@
+
+.error-notification {
+    background: #CB8589;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 8px;
+
+}
+
+.error-notification h3 {
+    color: #fff;
+    font-weight: 100;
+    font-size: 14px;
+}

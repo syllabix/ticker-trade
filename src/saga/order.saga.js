@@ -16,6 +16,8 @@ export function* fetchOrders() {
     try {
       const result = yield call([OrderService, OrderService.next]);
       yield processOrders(result.data);
+      // Clear errors in case there was one previously
+      yield put(ErrorActions.dissmiss());
     } catch (error) {
       const err = yield call(
         ErrorActions.display,
