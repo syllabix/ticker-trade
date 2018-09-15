@@ -8,12 +8,15 @@
     "qs": "^6.5.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
+    "react-flip-move": "^3.0.2",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
     "redux": "^4.0.0",
     "redux-actions": "^2.6.1",
     "redux-saga": "^0.16.0",
-    "redux-saga-router": "^2.2.0"
+    "redux-saga-router": "^2.2.0",
+    "reselect": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

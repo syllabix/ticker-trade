@@ -1,6 +1,6 @@
-import Cachios from './cachios';
+import Cachios from "./cachios";
 
-const axios = require('axios');
+const axios = require("axios");
 
 const instance = new Cachios(axios);
 

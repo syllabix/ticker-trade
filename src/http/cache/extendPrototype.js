@@ -5,38 +5,38 @@
 const datalessMethods = ["get"];
 
 const dataMethods = [
-    // 'post',
-    // 'put',
-    // 'patch',
+  // 'post',
+  // 'put',
+  // 'patch',
 ];
 
 function extendPrototype(cachiosPrototype) {
-    datalessMethods.forEach(method => {
-        cachiosPrototype[method] = function aliasDatalessMethod(url, config) {
-            const baseRequest = {
-                url,
-                method
-            };
+  datalessMethods.forEach(method => {
+    cachiosPrototype[method] = function aliasDatalessMethod(url, config) {
+      const baseRequest = {
+        url,
+        method
+      };
 
-            const mergedRequest = Object.assign(config || {}, baseRequest);
+      const mergedRequest = Object.assign(config || {}, baseRequest);
 
-            return this.request(mergedRequest);
-        };
-    });
+      return this.request(mergedRequest);
+    };
+  });
 
-    dataMethods.forEach(method => {
-        cachiosPrototype[method] = function aliasDataMethod(url, data, config) {
-            const baseRequest = {
-                url,
-                method,
-                data
-            };
+  dataMethods.forEach(method => {
+    cachiosPrototype[method] = function aliasDataMethod(url, data, config) {
+      const baseRequest = {
+        url,
+        method,
+        data
+      };
 
-            const mergedRequest = Object.assign(config || {}, baseRequest);
+      const mergedRequest = Object.assign(config || {}, baseRequest);
 
-            return this.request(mergedRequest);
-        };
-    });
+      return this.request(mergedRequest);
+    };
+  });
 }
 
 export default extendPrototype;

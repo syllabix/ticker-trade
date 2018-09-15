@@ -87,6 +87,8 @@ export const processMatches = (order, state = defaultState) => {
         let bid = state.bids[curMatchIdx];
         updateState("bids", bid);
       }
+      break;
+
     default:
       break;
   }

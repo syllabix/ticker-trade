@@ -18,4 +18,7 @@ let provider = axios.create({
   }
 });
 
+// TODO: determine best way to implement network cache
+// provider = cachios.create(provider);
+
 export default provider;

@@ -1,19 +1,38 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import createBrowserHistory from "history/createBrowserHistory";
+import { Router, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+
+import { routes } from "./constant";
+import store from "./store";
+
+import Backdrop from "./component/Backdrop";
+import MarketExchange from "./component/MarketExchange";
+import Logo from "./component/Logo";
+
 import "./App.css";
+
+const history = createBrowserHistory();
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Provider store={store}>
+        <Router history={history}>
+          <Backdrop>
+            <div className="container">
+              <Logo />
+              <Switch>
+                <Route
+                  path={routes.HOME}
+                  exact={true}
+                  component={MarketExchange}
+                />
+              </Switch>
+            </div>
+          </Backdrop>
+        </Router>
+      </Provider>
     );
   }
 }
