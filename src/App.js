@@ -10,6 +10,7 @@ import Backdrop from "./component/Backdrop";
 import MarketExchange from "./component/MarketExchange";
 import Logo from "./component/Logo";
 import Modal from "./component/Modal";
+import ErrorNotification from "./component/ErrorNotification";
 
 import "./App.css";
 
@@ -21,6 +22,7 @@ class App extends Component {
       <Provider store={store}>
         <Backdrop>
           <Modal />
+          <ErrorNotification />
           <div className="container">
             <Logo />
             <MarketExchange />

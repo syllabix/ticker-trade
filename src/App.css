@@ -353,3 +353,9 @@ body {
   margin: 15px 15px 0px;
   min-width: 742px;
 }
+
+.error-notification {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+}
