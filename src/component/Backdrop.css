@@ -1,0 +1,59 @@
+
+.backdrop {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: no-repeat 0 100%,linear-gradient(165deg,#639b22,#8bc34a 100%,#fff 100%,#fff);
+    overflow-y: scroll;
+}
+
+.backdrop svg {
+    position: absolute;
+    bottom: -164px;
+    z-index: 1;
+}
+
+.backdrop .market-exchange {
+  position: relative;
+  z-index: 2;
+}
+
+/** Colors for mosaic **/
+.cls-1 {
+  fill: #abd976;
+}
+.cls-2 {
+  fill: #a4cb96;
+}
+.cls-3 {
+  fill: #d1e5ca;
+}
+.cls-4,
+.cls-6 {
+  fill: #72a350;
+}
+.cls-5 {
+  fill: #96c271;
+}
+.cls-6 {
+  opacity: 0.6;
+  isolation: isolate;
+}
+.cls-7 {
+  fill: #b9d3ae;
+}
+.cls-8 {
+  fill: #baceb2;
+}
+.cls-9 {
+  opacity: 0.2;
+}
+.cls-10 {
+  fill: #e0eadc;
+}
+.cls-11 {
+  fill: #aecea1;
+}
+.cls-12 {
+  fill: #9ec965;
+}
