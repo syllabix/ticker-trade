@@ -16,7 +16,7 @@ export const processMatches = (order, state = defaultState) => {
   let curMatchPrice = Number.MIN_SAFE_INTEGER;
   let curMatchId = Number.MAX_SAFE_INTEGER;
 
-  const hasPriority = (price, newOrder, matchedOrder) => {
+  const hasPriority = (price, matchedOrder) => {
     return (
       price > curMatchPrice ||
       (price === curMatchPrice && matchedOrder.id < curMatchId)
@@ -25,7 +25,7 @@ export const processMatches = (order, state = defaultState) => {
 
   const setCurrentMatch = (newOrder, matchedOrder, matchedOrderIdx) => {
     let price = calculatePrice(newOrder.price, matchedOrder.price);
-    if (hasPriority(price, order, matchedOrder)) {
+    if (hasPriority(price, matchedOrder)) {
       curMatchPrice = price;
       curMatchId = matchedOrder.id;
       curMatchIdx = matchedOrderIdx;
@@ -91,7 +91,13 @@ export const processMatches = (order, state = defaultState) => {
       break;
   }
 
-  if (order.quantity === 0 || curMatchIdx < 0) {
+  if (order.quantity === 0) {
+    return state;
+  }
+
+  if (curMatchIdx < 0) {
+    const key = order.type === SELL_ORDER_TYPE ? "asks" : "bids";
+    state[key].push(order);
     return state;
   }
 

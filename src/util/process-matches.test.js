@@ -157,7 +157,15 @@ describe("processMatches", () => {
         { id: 1008, type: "buy", quantity: 4, price: 512 },
         { id: 1009, type: "buy", quantity: 2, price: 512 }
       ],
-      matches: []
+      matches: [
+        {
+          buyOrderId: 999,
+          pricePerUnit: 320,
+          quantity: 2,
+          sellOrderId: 1000,
+          time: new Date()
+        }
+      ]
     };
 
     const order = { id: 1010, type: "sell", quantity: 8, price: 442 };
@@ -192,6 +200,81 @@ describe("processMatches", () => {
           pricePerUnit: 477,
           quantity: 3,
           sellOrderId: 1010,
+          time: new Date()
+        },
+        {
+          buyOrderId: 999,
+          pricePerUnit: 320,
+          quantity: 2,
+          sellOrderId: 1000,
+          time: new Date()
+        }
+      ]
+    };
+
+    const result = processMatches(order, state);
+    expect(result).toEqual(expected);
+  });
+
+  it("should add order to queue when state is empty", () => {
+    const state = {
+      asks: [],
+      bids: [],
+      matches: []
+    };
+
+    const order = { id: 1010, type: "sell", quantity: 8, price: 442 };
+
+    const expected = {
+      asks: [{ id: 1010, type: "sell", quantity: 8, price: 442 }],
+      bids: [],
+      matches: []
+    };
+
+    const result = processMatches(order, state);
+    expect(result).toEqual(expected);
+  });
+
+  it("should add order to queue when there is remaining quantity after finding matches", () => {
+    const state = {
+      asks: [
+        { id: 1001, type: "sell", quantity: 2, price: 480 },
+        { id: 1004, type: "sell", quantity: 3, price: 490 },
+        { id: 1005, type: "sell", quantity: 7, price: 510 },
+        { id: 1006, type: "sell", quantity: 7, price: 475 }
+      ],
+      bids: [
+        { id: 1002, type: "buy", quantity: 8, price: 470 },
+        { id: 1003, type: "buy", quantity: 5, price: 460 }
+      ],
+      matches: []
+    };
+
+    const order = { id: 1007, type: "buy", quantity: 13, price: 482 };
+
+    const expected = {
+      asks: [
+        { id: 1004, type: "sell", quantity: 3, price: 490 },
+        { id: 1005, type: "sell", quantity: 7, price: 510 }
+      ],
+      bids: [
+        { id: 1002, type: "buy", quantity: 8, price: 470 },
+        { id: 1003, type: "buy", quantity: 5, price: 460 },
+        { id: 1007, type: "buy", quantity: 4, price: 482 }
+      ],
+      matches: [
+        {
+          buyOrderId: 1007,
+          pricePerUnit: 478.5,
+          quantity: 7,
+          sellOrderId: 1006,
+          time: new Date()
+        },
+        {
+          buyOrderId: 1007,
+          pricePerUnit: 481,
+          quantity: 2,
+          sellOrderId: 1001,
           time: new Date()
         }
       ]
