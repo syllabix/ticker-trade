@@ -26,12 +26,12 @@ function* init() {
 export default function* sagaRouter() {
   try {
     yield init();
-    yield fork(router, createBrowserHistory(), routeSagas);
-  } catch (err) {
+  } catch (error) {
     const err = yield call(
       ErrorActions.display,
       "An error occurred while initializing ticker trade"
     );
     yield put(err);
   }
+  yield fork(router, createBrowserHistory(), routeSagas);
 }

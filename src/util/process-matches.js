@@ -52,9 +52,11 @@ export const processMatches = (order, state = defaultState) => {
       order.type === BUY_ORDER_TYPE ? order.id : matchedOrder.id;
 
     let match = {
+      id: `${buyOrderId}.${sellOrderId}`,
       time: new Date(),
       quantity: qtyInMatch,
-      pricePerUnit: curMatchPrice,
+      type: "match",
+      price: curMatchPrice,
       sellOrderId,
       buyOrderId
     };

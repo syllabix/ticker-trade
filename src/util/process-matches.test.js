@@ -26,15 +26,19 @@ describe("processMatches", () => {
       bids: [{ id: 1003, type: "buy", quantity: 3, price: 460 }],
       matches: [
         {
+          id: "1003.1004",
           buyOrderId: 1003,
-          pricePerUnit: 460,
+          price: 460,
+          type: "match",
           quantity: 2,
           sellOrderId: 1004,
           time: new Date()
         },
         {
+          id: "1002.1004",
           buyOrderId: 1002,
-          pricePerUnit: 465,
+          price: 465,
+          type: "match",
           quantity: 8,
           sellOrderId: 1004,
           time: new Date()
@@ -76,22 +80,28 @@ describe("processMatches", () => {
       ],
       matches: [
         {
+          id: "1007.1006",
           buyOrderId: 1007,
-          pricePerUnit: 483,
+          price: 483,
+          type: "match",
           quantity: 1,
           sellOrderId: 1006,
           time: new Date()
         },
         {
+          id: "1007.1001",
           buyOrderId: 1007,
-          pricePerUnit: 485.5,
+          price: 485.5,
+          type: "match",
           quantity: 6,
           sellOrderId: 1001,
           time: new Date()
         },
         {
+          id: "1007.1004",
           buyOrderId: 1007,
-          pricePerUnit: 490.5,
+          price: 490.5,
+          type: "match",
           quantity: 3,
           sellOrderId: 1004,
           time: new Date()
@@ -129,8 +139,10 @@ describe("processMatches", () => {
       ],
       matches: [
         {
+          id: "1007.1008",
           buyOrderId: 1007,
-          pricePerUnit: 477,
+          price: 477,
+          type: "match",
           quantity: 3,
           sellOrderId: 1008,
           time: new Date()
@@ -159,8 +171,10 @@ describe("processMatches", () => {
       ],
       matches: [
         {
+          id: "999.1000",
           buyOrderId: 999,
-          pricePerUnit: 320,
+          price: 320,
+          type: "match",
           quantity: 2,
           sellOrderId: 1000,
           time: new Date()
@@ -182,29 +196,37 @@ describe("processMatches", () => {
       ],
       matches: [
         {
+          id: "1009.1010",
           buyOrderId: 1009,
-          pricePerUnit: 477,
+          price: 477,
+          type: "match",
           quantity: 1,
           sellOrderId: 1010,
           time: new Date()
         },
         {
+          id: "1008.1010",
           buyOrderId: 1008,
-          pricePerUnit: 477,
+          price: 477,
+          type: "match",
           quantity: 4,
           sellOrderId: 1010,
           time: new Date()
         },
         {
+          id: "1004.1010",
           buyOrderId: 1004,
-          pricePerUnit: 477,
+          price: 477,
+          type: "match",
           quantity: 3,
           sellOrderId: 1010,
           time: new Date()
         },
         {
+          id: "999.1000",
           buyOrderId: 999,
-          pricePerUnit: 320,
+          price: 320,
+          type: "match",
           quantity: 2,
           sellOrderId: 1000,
           time: new Date()
@@ -264,15 +286,19 @@ describe("processMatches", () => {
       ],
       matches: [
         {
+          id: "1007.1006",
           buyOrderId: 1007,
-          pricePerUnit: 478.5,
+          price: 478.5,
+          type: "match",
           quantity: 7,
           sellOrderId: 1006,
           time: new Date()
         },
         {
+          id: "1007.1001",
           buyOrderId: 1007,
-          pricePerUnit: 481,
+          price: 481,
+          type: "match",
           quantity: 2,
           sellOrderId: 1001,
           time: new Date()

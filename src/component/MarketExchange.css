@@ -1,0 +1,8 @@
+
+.market-exchange {
+    display: flex;
+}
+
+.market-exchange .order-queue {
+    flex-grow: 1;
+}

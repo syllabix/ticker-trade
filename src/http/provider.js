@@ -1,7 +1,7 @@
 import axios from "axios";
 import qs from "qs";
 
-import cachios from "./cache";
+// import cachios from "./cache";
 import config from "../config";
 
 let provider = axios.create({

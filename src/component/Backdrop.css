@@ -4,12 +4,18 @@
     width: 100%;
     position: absolute;
     background: no-repeat 0 100%,linear-gradient(165deg,#639b22,#8bc34a 100%,#fff 100%,#fff);
+    overflow-y: scroll;
 }
 
 .backdrop svg {
     position: absolute;
     bottom: -164px;
-    overflow-y: hidden;
+    z-index: 1;
+}
+
+.backdrop .market-exchange {
+  position: relative;
+  z-index: 2;
 }
 
 /** Colors for mosaic **/

@@ -1,0 +1,27 @@
+
+.order-card {
+    background: #fff;
+    opacity: 0.95;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.2);
+    padding: 8px;
+    margin-bottom: 4px;
+    display: flex;
+    font-weight: 100;
+}
+
+.order-card.clickable {
+    cursor: pointer;
+}
+
+.order-card div {
+    flex-grow: 1;
+}
+
+.order-card div.price {
+    flex-grow: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}

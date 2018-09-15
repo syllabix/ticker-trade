@@ -22,7 +22,6 @@ export function* fetchOrders() {
         "An error occurred while fetching data from the exchange"
       );
       yield put(err);
-      return;
     }
     yield call(delay, 1500);
   }
